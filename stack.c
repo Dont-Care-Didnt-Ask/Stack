@@ -1,4 +1,3 @@
-
 #include <stdlib.h>
 #include "stack.h"
 #include <string.h>
@@ -41,24 +40,25 @@ void * pop(Stack * st) {
 	(st->top)--;
 	return ptr;
 	/*
-	takes the adress of the beginning of array and addes the offset.
-	offset is calculated as a product of amount of elements and size of one element.
-	by the way top is decremented, as we pop the last element.
+	Takes the adress of the beginning of the array and adds the offset.
+	Offset is calculated as a product of amount of the elements and the size of one element.
+	Top is decremented, as we pop the last element.
 	*/
 }
 
-void * look(Stack * st) {
-	if(isempty(st)) return NULL;
+
+/*
+	Returns the element on the top of the stack
+	but doesn't remove it
+*/
+void *current(Stack * st) {
+	if (isempty(st)) return NULL;
 
 	char * tmp = (char *) st->arr;
 	tmp += (st->top) * (st->one_elem_sz);
 	void * ptr = tmp;
 
 	return ptr;
-	/*
-	Returns the element on the top of the stack
-	but doesn't remove it
-	*/
 }
 
 void push(Stack * st, void * elem){
